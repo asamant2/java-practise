@@ -41,11 +41,11 @@ public class CodeExercise {
 				System.exit(1);
 			}
 			int qChoice = Integer.parseInt(strChoice);
-			intScanner.nextLine();
 			switch(qChoice) {
 				case 1 : 
 					System.out.println("Enter the comma separated values : ");
-					strNumbers = intScanner.nextLine();
+					//intScanner.nextLine();
+					strNumbers = intScanner.next();
 					System.out.println("Enter the difference of numbers : ");
 					int difference = intScanner.nextInt();
 					intArray = transformStringToIntArray(strNumbers);
@@ -55,7 +55,8 @@ public class CodeExercise {
 					continue;
 				case 2 :
 					System.out.println("Enter the comma separated values for currency values : ");
-					strNumbers = intScanner.nextLine();
+					//intScanner.nextLine();
+					strNumbers = intScanner.next();
 					intArray = transformStringToIntArray(strNumbers);
 					printBuySellDaysForMaxProfit(intArray);
 					System.out.println("\n\nContinue Testing");
@@ -68,7 +69,8 @@ public class CodeExercise {
 					continue;
 				case 4:
 					System.out.println("Enter sequence of numbers : ");
-					strNumbers = intScanner.nextLine();
+					//intScanner.nextLine();
+					strNumbers = intScanner.next();
 					Stream
 						.of(strNumbers.split(","))
 						.map(strNumber -> strNumber.trim())

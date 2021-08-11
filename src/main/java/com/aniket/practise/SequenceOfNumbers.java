@@ -8,7 +8,6 @@ import java.util.List;
 public class SequenceOfNumbers {
 
 	private List<Integer> numList = new ArrayList<>();
-	private boolean listUpdated = false;
 	private int highestConsNumber;
 	
 	private Comparator<Integer> comparator = (num1, num2) -> num1 - num2;
@@ -17,23 +16,22 @@ public class SequenceOfNumbers {
 		if (!numList.contains(num)) {
 			numList.add(num);
 			Collections.sort(numList, comparator);
-			listUpdated = true;
 		}
 	}
 	
 	public int longestConsecutive() {
-		if(listUpdated) {
-			for (int loop = 0; loop < numList.size()-1; loop++) {
-				highestConsNumber = numList.get(loop);
-				if(numList.get(loop+1) != numList.get(loop) + 1) {
-					if(loop == numList.size()-2) {
-						highestConsNumber = numList.get(loop+1);
-					}
-					break;
+		for (int loop = 0; loop < numList.size()-1; loop++) {
+			highestConsNumber = numList.get(loop);
+			if(numList.get(loop+1) != numList.get(loop) + 1) {
+				if(loop == numList.size()-2) {
+					highestConsNumber = numList.get(loop+1);
 				}
+				break;
+			}
+			if(loop == numList.size()-2 && numList.get(loop+1) != numList.get(loop) + 1) {
+				highestConsNumber = numList.get(loop+1);
 			}
 		}
-		listUpdated = false;
 		return highestConsNumber;
 	}
 }
